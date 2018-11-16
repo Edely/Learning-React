@@ -1,8 +1,11 @@
 import React from 'react';
 
-const UserInput = () =>{
-
-    return <h1>AHAHAHAHAH!!!! MODEFÓOOOCAAAA!!</h1>
+const userinput = () =>{
+    return(
+        <div>
+            <input type="text" />
+        </div>
+    )
 }
 
-export default UserInput;
+export default userinput;
