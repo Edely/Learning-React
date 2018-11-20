@@ -17,22 +17,25 @@ class App extends Component {
     wA.map((l, i) => {          
       let keyId = window.performance.now() + i;
       let wordObject = {char: l, id: keyId};
-      const arrayTemp = [...this.state.wordArray];
-      arrayTemp.concat(wordObject);
-      console.log(arrayTemp);
+      
+      let arr = [];
+      let arrayTemp = this.state.wordArray;
+      
+      arr = arrayTemp.concat([wordObject]);      
+
       this.setState({
         word: string,
         lenWord: string.length,
-        wordArray: wordObject
+        wordArray: arr        
       })
-    });
-    
+
+    }); 
     
     
   }
 
   removeHandler = (event, index) =>{
-    console.log(this.state)
+    //console.log(this.state)
   }
 
   render() {
@@ -48,25 +51,26 @@ class App extends Component {
     let letter = null;
     if(this.state.lenWord > 0){
 
-      //const newWord = {...this.state};
+      const newWord = {...this.state};
       //const letters = newWord.word.split('');
+      const letters = this.state.wordArray;
       //const letters = {...this.state.wordArray};
 
       //console.log({...this.state.wordArray});
 
-      // letter = (        
-      //   <div>
-      //     { letters.map((l, i) => {
+      letter = (        
+        <div>
+          { letters.map((l, i) => {
             
-      //       return <CharComponent 
-      //               style={style}
-      //               letter={l} 
-      //               //key={keyId} 
-      //               //click={(event) => this.removeHandler(event, keyId)}
-      //               />
-      //     })}          
-      //   </div>
-      // );
+            return <CharComponent 
+                    style={style}
+                    letter={l.char} 
+                    key={l.id} 
+                    click={(event) => this.removeHandler(event, l.id)}
+                    />
+          })}          
+        </div>
+      );
 
     }    
     
