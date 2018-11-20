@@ -52,7 +52,8 @@ class App extends Component {
       padding: '16px', 
       textAlign: 'center', 
       margin: '16px', 
-      border: '1px solid black'
+      border: '1px solid black',
+      cursor: 'pointer'
     }
 
     let letter = null;
