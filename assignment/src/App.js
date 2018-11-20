@@ -1,79 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import ValidationComponent from './ValidationComponent/ValidationComponent';
-import CharComponent from './CharComponent/CharComponent';
 
 class App extends Component {
-  state = {
-    word: '',
-    lenWord: null,
-    wordArray: []
-  };
 
-  changeHandler = (event) =>{
-    
-    let string = event.target.value;
-    let wA = string.split('');
-    
-    wA.map((l, i) => {          
-      let keyId = window.performance.now() + i;
-      let wordObject = {char: l, id: keyId};
-      
-      let arr = [];
-      let arrayTemp = this.state.wordArray;
-      
-      arr = arrayTemp.concat([wordObject]);      
-
-      this.setState({
-        word: string,
-        lenWord: string.length,
-        wordArray: arr        
-      })
-
-    });     
-    
-  }
-
-  removeHandler = (index) =>{
-
-    const personIndex = this.state.wordArray.findIndex(p =>{
-      return p.id === index;
-    });
-    
-    const chars = [...this.state.wordArray];
-    chars.splice(personIndex, 1);
-    this.setState({wordArray: chars});
-  }
-
-  render() {
-    
-    const style = {
-      display: 'inline-block', 
-      padding: '16px', 
-      textAlign: 'center', 
-      margin: '16px', 
-      border: '1px solid black',
-      cursor: 'pointer'
-    }
-
-    let letter = null;
-    if(this.state.lenWord > 0){
-      const letters = this.state.wordArray;
-
-      letter = (        
-        <div>
-          { letters.map((l) => {            
-            return <CharComponent 
-                    style={style}
-                    letter={l.char} 
-                    key={l.id} 
-                    click={() => this.removeHandler(l.id)}
-                    />
-          })}          
-        </div>
-      );
-
-    }    
+  render () {
     
     return (
       <div className="App">
@@ -86,16 +16,7 @@ class App extends Component {
           <li>When you click a CharComponent, it should be removed from the entered text.</li>
         </ol>
         <p>Hint: Keep in mind that JavaScript strings are basically arrays!</p>
-
-        <input 
-        type="text"
-        onChange={this.changeHandler}
-        />
-        <p>Length of the text: {this.state.lenWord}</p>
-        <ValidationComponent 
-          tamanho={this.state.lenWord}
-        />
-        {letter}
+        <hr />        
       </div>
     );
   }
