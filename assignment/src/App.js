@@ -11,6 +11,7 @@ class App extends Component {
   };
 
   changeHandler = (event) =>{
+    
     let string = event.target.value;
     let wA = string.split('');
     
@@ -29,13 +30,19 @@ class App extends Component {
         wordArray: arr        
       })
 
-    }); 
-    
+    });     
     
   }
 
-  removeHandler = (event, index) =>{
-    //console.log(this.state)
+  removeHandler = (index) =>{
+
+    const personIndex = this.state.wordArray.findIndex(p =>{
+      return p.id === index;
+    });
+    
+    const chars = [...this.state.wordArray];
+    chars.splice(personIndex, 1);
+    this.setState({wordArray: chars});
   }
 
   render() {
@@ -50,23 +57,16 @@ class App extends Component {
 
     let letter = null;
     if(this.state.lenWord > 0){
-
-      const newWord = {...this.state};
-      //const letters = newWord.word.split('');
       const letters = this.state.wordArray;
-      //const letters = {...this.state.wordArray};
-
-      //console.log({...this.state.wordArray});
 
       letter = (        
         <div>
-          { letters.map((l, i) => {
-            
+          { letters.map((l) => {            
             return <CharComponent 
                     style={style}
                     letter={l.char} 
                     key={l.id} 
-                    click={(event) => this.removeHandler(event, l.id)}
+                    click={() => this.removeHandler(l.id)}
                     />
           })}          
         </div>
