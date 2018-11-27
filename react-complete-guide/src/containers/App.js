@@ -5,11 +5,14 @@ import Cockpit from '../components/Cockpit/Cockpit';
 import Aux from '../hoc/Auxiliary';
 import withClass from '../hoc/withClass';
 
+
+export const AuthContext = React.createContext(false);
+
 class App extends PureComponent {
 
   constructor(props){
     super(props);
-    console.log('[App.js] Inside Contructor', props)
+    console.log('[App.js] Inside Constructor', props)
     this.state = {
       persons: [
         { id: 'edasdas', name: 'Max', age: 28 },
@@ -18,7 +21,8 @@ class App extends PureComponent {
       ],
       otherState: 'some other value',
       showPersons: false,
-      toggleClicked: 0
+      toggleClicked: 0,
+      authenticated: false
     }
   }
 
@@ -54,17 +58,17 @@ class App extends PureComponent {
   //   showPersons: false
   // }
 
-  switchNameHandler = (newName) =>{
-    //DONT DO THIS this.state.persons[0].name = 'Maximilian';
+  // switchNameHandler = (newName) =>{
+  //   //DONT DO THIS this.state.persons[0].name = 'Maximilian';
 
-    this.setState({
-      persons: [
-        { name: newName, age: 28 },
-        { name: 'Manu', age: 29 },
-        { name: 'Stephanie', age: 27 }
-      ]
-    })
-  }
+  //   this.setState({
+  //     persons: [
+  //       { name: newName, age: 28 },
+  //       { name: 'Manu', age: 29 },
+  //       { name: 'Stephanie', age: 27 }
+  //     ]
+  //   })
+  //}
 
   nameChangedHandler = (event, id) =>{
 
@@ -101,6 +105,12 @@ class App extends PureComponent {
         toggleClicked: prevState.toggleClicked+1
       }
     });
+
+    console.log(this.state)
+  }
+
+  loginHandler = () => {
+    this.setState({authenticated:true})
   }
 
   render() {
@@ -125,9 +135,9 @@ class App extends PureComponent {
             appTitle={ this.props.title }
             showPersons={ this.state.showPersons } 
             persons={ this.state.persons }
-            clicked={ this.togglePersonsHandler }
-          />
-          {persons}
+            login={this.loginHandler}
+            clicked={ this.togglePersonsHandler } />
+            <AuthContext.Provider value={this.state.authenticated}>          {persons}</AuthContext.Provider >
       </Aux>
     );
     //return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does It Work now?'));
