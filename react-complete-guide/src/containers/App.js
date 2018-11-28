@@ -4,7 +4,6 @@ import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 import Aux from '../hoc/Auxiliary';
 import withClass from '../hoc/withClass';
-import AuthContext from './auth-context';
 
 
 export const AuthContext = React.createContext(false);
@@ -43,6 +42,17 @@ class App extends PureComponent {
 
   componentWillUpdate(nextProps, nextState){
       console.log('[UPDATE App.js] Inside ComponentWillUpdate', nextProps, nextState );
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState){
+    console.log('[UPDATE App.js] Inside getDerivedStateFromProps', nextProps, prevState );
+
+    return prevState;
+  }
+
+
+  static getSnapshotBeforeUpdate( ){
+    console.log('[UPDATE App.js] Inside getDerivedStateFromProps');
   }
 
   componentDidUpdate(){
