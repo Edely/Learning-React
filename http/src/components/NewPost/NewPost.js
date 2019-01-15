@@ -11,7 +11,6 @@ class NewPost extends Component {
     }
 
     postDataHandler = () => {
-
         const data = {
             title: this.state.title,
             body: this.state.content,
@@ -22,7 +21,6 @@ class NewPost extends Component {
                 response => {
                     console.log(response)
                 });
-
     }
 
     render() {
