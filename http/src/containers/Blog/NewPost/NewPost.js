@@ -24,7 +24,8 @@ class NewPost extends Component {
             .then(
                 response => {
                     console.log(response);
-                    this.setState({ submitted: true })
+                    this.props.history.replace('/posts');
+                    //this.setState({ submitted: true })
                 });
     }
 
