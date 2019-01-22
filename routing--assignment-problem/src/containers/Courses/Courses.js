@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Route, NavLink } from 'react-router-dom';
-import Post from '../Course/Course';
+import { Route, Link } from 'react-router-dom';
+import Course from '../Course/Course';
 
 import './Courses.css';
-import Course from '../Course/Course';
 
 class Courses extends Component {
     state = {
@@ -14,24 +13,25 @@ class Courses extends Component {
         ]
     }
 
-    courseSelectHandler = (id) => {
-        console.log(id);
-    }
-
     render() {
-        let courses = this.state.courses.map(course => {
-            return <article className="Course" key={course.id} clicked={this.courseSelectHandler(course.id)} >{course.title} </article>;
-        })
-
         return (
             <div>
                 <h1>Amazing Udemy Courses</h1>
                 <section className="Courses">
-                    {courses}
+                    {
+                        this.state.courses.map(course => {
+                            return (
+                                <Link
+                                    key={course.id}
+                                    to={{
+                                        pathname: this.props.match.url + '/' + course.id,
+                                        search: '?title=' + course.title
+                                    }}> <article className="Course">{course.title}</article></Link>
+                            );
+                        })
+                    }
                 </section>
-                {this.state.courses.map(course => {
-                    return <Route key={course.id} name={course.title} id={course.id} clicked={this.courseSelectHandler(course.id)} />;
-                })}
+                <Route path={this.props.match.url + '/:courseId'} component={Course}></Route>
             </div>
         );
     }
