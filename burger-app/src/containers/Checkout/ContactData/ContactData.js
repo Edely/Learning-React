@@ -105,7 +105,6 @@ class ContactData extends Component {
             <form>
 
                 {formElementsArray.map(formElement => (
-
                     < Input key={formElement.id} elementType={formElement.config.elementType} elementConfig={formElement.config.elementConfig} value={formElement.config.elementValue} />
                 ))}
                 <Button btnType="Success" clicked={this.orderHandler}>ORDER</Button>
