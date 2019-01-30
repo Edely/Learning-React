@@ -22,10 +22,9 @@ const reducer = (state = initialState, action) => {
                 // results: newArray
                 results: updatedArray
             }
-
+        default:
+            return state;
     }
-
-    return state;
 }
 
 export default reducer;
