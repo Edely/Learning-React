@@ -32,7 +32,7 @@ const reducer = (state = initialState, action) => {
         case actionTypes.REMOVE_INGREDIENT:
             return {
                 ...state,
-                ingredient: {
+                ingredients: {
                     ...state.ingredients,
                     [action.ingredientName]: state.ingredients[action.ingredientName] - 1
                 },
