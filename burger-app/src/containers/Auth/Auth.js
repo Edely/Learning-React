@@ -9,7 +9,7 @@ class Auth extends Component {
 
     state = {
         controls: {
-            name: {
+            email: {
                 elementType: 'input',
                 elementConfig: {
                     type: 'email',
