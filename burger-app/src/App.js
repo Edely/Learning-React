@@ -6,6 +6,7 @@ import Checkout from './containers/Checkout/Checkout';
 import Orders from './containers/Orders/Orders';
 import Auth from './containers/Auth/Auth';
 
+
 class App extends Component {
   render() {
     return (

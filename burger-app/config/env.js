@@ -14,6 +14,14 @@ if (!NODE_ENV) {
   );
 }
 
+
+const FIREBASE_BURGER_API_KEY = process.env.FIREBASE_BURGER_API_KEY;
+if (!FIREBASE_BURGER_API_KEY) {
+  throw new Error(
+    'The FIREBASE_BURGER_API_KEY environment variable is required but was not specified.'
+  );
+}
+
 // https://github.com/bkeepers/dotenv#what-other-env-files-can-i-use
 var dotenvFiles = [
   `${paths.dotenv}.${NODE_ENV}.local`,
@@ -77,6 +85,7 @@ function getClientEnvironment(publicUrl) {
         // This should only be used as an escape hatch. Normally you would put
         // images into the `src` and `import` them in code to get their paths.
         PUBLIC_URL: publicUrl,
+        FIREBASE_BURGER_API_KEY: process.env.FIREBASE_BURGER_API_KEY || null,
       }
     );
   // Stringify all values so we can feed into Webpack DefinePlugin
