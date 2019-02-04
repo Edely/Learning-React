@@ -144,7 +144,6 @@ class ContactData extends Component {
     }
 
     inputChangedHandler = (event, inputIdentifier) => {
-
         const updatedOrderForm = {
             ...this.state.orderForm
         }
@@ -168,7 +167,6 @@ class ContactData extends Component {
     render() {
 
         const formElementsArray = [];
-
         for (let key in this.state.orderForm) {
             formElementsArray.push({
                 id: key,
