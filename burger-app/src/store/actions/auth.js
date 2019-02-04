@@ -24,16 +24,20 @@ export const authFail = (error) => {
 };
 
 
-export const auth = (email, password) => {
-
-    const apiKey = process.env.FIREBASE_BURGER_API_KEY;
-    const authData = {
-        email: email,
-        password: password,
-        returnSecureToken: true
-    }
-    const urlApi = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=' + apiKey;
+export const auth = (email, password, isSignup) => {
     return dispatch => {
+
+        const apiKey = process.env.FIREBASE_BURGER_API_KEY;
+        const authData = {
+            email: email,
+            password: password,
+            returnSecureToken: true
+        }
+
+        let urlApi = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=' + apiKey;
+        if (!isSignup) {
+            urlApi = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=' + apiKey;
+        }
         dispatch(authStart());
         axios.post(urlApi, authData)
             .then(response => {
