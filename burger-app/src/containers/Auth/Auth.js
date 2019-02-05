@@ -5,6 +5,7 @@ import Classes from './Auth.css';
 import * as actions from '../../store/actions/index';
 import { connect } from 'react-redux';
 import Spinner from '../../components/UI/Spinner/Spinner';
+import { Redirect } from 'react-router-dom';
 
 class Auth extends Component {
 
@@ -40,6 +41,12 @@ class Auth extends Component {
             }
         },
         isSignup: true
+    }
+
+    componentDidMount() {
+        if (!this.props.buildingBurger && this.props.onSetAuthRedirectPath !== '/') {
+            this.props.onSetAuthRedirectPath();
+        }
     }
 
     checkValidity(value, rules) {
@@ -131,8 +138,15 @@ class Auth extends Component {
                 <p>{this.props.error.message}</p>
             );
         }
+
+        let authRedirect = null;
+        if (this.props.isAuthenticated) {
+            authRedirect = <Redirect to={this.props.authRedirectPath} />;
+        }
+
         return (
             <div className={Classes.Auth}>
+                {authRedirect}
                 {errorMessage}
                 <form onSubmit={(event) => this.submitHandler(event)}>
                     {form}
@@ -143,19 +157,24 @@ class Auth extends Component {
                     btnType="Danger">SWITCH TO {this.state.isSignup ? 'SIGNIN' : 'SINGUP'}</Button>
             </div>
         );
+
     };
 }
 
 const mapStateToProps = state => {
     return {
         loading: state.auth.loading,
-        error: state.auth.error
+        error: state.auth.error,
+        isAuthenticated: state.auth.token != null,
+        buildingBurger: state.burgerBuilder.building,
+        authRedirectPath: state.auth.authRedirectPath
     };
 };
 
 const mapDispatchToProps = dispacth => {
     return {
-        onAuth: (email, password, isSignup) => dispacth(actions.auth(email, password, isSignup))
+        onAuth: (email, password, isSignup) => dispacth(actions.auth(email, password, isSignup)),
+        onSetAuthRedirectPath: () => dispacth(actions.setAuthRedirectPath('/'))
     };
 };
 
