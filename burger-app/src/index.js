@@ -22,7 +22,7 @@ const rootReducer = combineReducers({
 
 const store = createStore(rootReducer, /* preloadedState, */ composeEnhancers(
     applyMiddleware(thunk)
-))
+));
 
 const app = (
     <Provider store={store}>
@@ -30,7 +30,7 @@ const app = (
             <App />
         </BrowserRouter>
     </Provider>
-)
+);
 
 ReactDOM.render(app, document.getElementById('root'));
 registerServiceWorker();
