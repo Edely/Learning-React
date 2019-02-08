@@ -9,7 +9,13 @@ class Tarefas extends Component{
 
         let tarefas = null;
         if(this.props.tarefas){
+
+           
+            const tarefasConcluidas= this.props.tarefas.filter(tarefa=>tarefa.prazo <= new Date.getTime() );
+            const tarefasAbertas = this.props.tarefas.filter(tarefa=>tarefa.prazo > new Date.getTime() );
+            
             tarefas = this.props.tarefas.map(tarefa =>{
+                
                 return (
                     tarefas = <Tarefa 
                                 nome={tarefa.nome}
