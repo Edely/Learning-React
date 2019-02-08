@@ -10,6 +10,11 @@
   }
 }
 
+.header{
+    text-align: center;
+    padding: 20px;
+    font-size: 20px;
+}
 .lista-tarefas{
   width: 100%
 }
