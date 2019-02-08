@@ -5,10 +5,6 @@ import * as actions from '../../store/actions';
 
 class Tarefas extends Component{
 
-    componentWillMount(){
-        
-    }
-
     render(){
 
         let tarefas = null;
