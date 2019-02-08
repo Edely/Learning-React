@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Tarefa from './Tarefa/Tarefa';
 import * as actions from '../../store/actions';
-
 
 class Tarefas extends Component{
 
@@ -11,18 +11,19 @@ class Tarefas extends Component{
         if(this.props.tarefas){
             tarefas = this.props.tarefas.map(tarefa =>{
                 return (
-                <li className={'lista-tarefa__itens'}>
-                    <span>{tarefa.tarefa} </span>
-                    <span>{tarefa.responsavel}</span>
-                    <span>{tarefa.prazo}</span>
-                </li>)
+                    tarefas = <Tarefa 
+                                nome={tarefa.nome}
+                                descricao={tarefa.descricao}
+                                prazo={tarefa.prazo}
+                                props={tarefa.responsavel}/>
+                    )
                 });
         }
        
         return (
-                <ul className={'lista-tarefas'}>
+                <div className={'lista-tarefas'}>
                     {tarefas}
-                </ul>
+                </div>
             );
     }
     
