@@ -12,7 +12,10 @@ class App extends Component {
         <header className={'header'}>
           Tarefas Domésticas
         </header>
-        <Tarefas />
+        <main className={'main'}>
+          <Tarefas concluida />
+          <Tarefas concluida={false} />
+        </main>
       </div>
     );
   }

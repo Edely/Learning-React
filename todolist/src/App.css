@@ -13,8 +13,22 @@
 .header{
     text-align: center;
     padding: 20px;
-    font-size: 20px;
+    font-size: 36px;
 }
+
+.main{
+  width: 100%;
+  display: block;
+}
+
 .lista-tarefas{
-  width: 100%
+  width: 50%;
+  display: block;
+  float: left;
+}
+
+.lista-tarefa__itens {
+  display: block;
+  height: 90px;
+  padding: 10px 0;
 }

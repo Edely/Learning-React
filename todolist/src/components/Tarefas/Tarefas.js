@@ -22,6 +22,7 @@ class Tarefas extends Component{
        
         return (
                 <div className={'lista-tarefas'}>
+                    <div className={'lista-tarefas__header'}> {this.props.concluida ? 'Tarefas Concluídas': 'Tarefas Por Fazer'}</div>
                     {tarefas}
                 </div>
             );

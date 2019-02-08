@@ -9,13 +9,13 @@ const placeholderTarefas = [
       tarefa: 'Lavar os Pratos',
       descricao: 'A melhor das tarefas. Quem não gosta?!!!',
       responsavel: 'Edely',
-      prazo: '11/02/90'
+      prazo: '634769238'
     },
     {
       tarefa: 'Alimentar os Gatos',
       descricao: 'São uns monstros. Não demore!',
       responsavel: 'Selina',
-      prazo: '25/12/2020'
+      prazo: '1550177177'
     }
   ];
 
