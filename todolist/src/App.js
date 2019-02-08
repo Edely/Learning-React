@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Tarefas from './components/Tarefas/Tarefas';
+import Layout from './containers/Layout/Layout';
 
 class App extends Component {
 
@@ -13,8 +13,8 @@ class App extends Component {
           Tarefas Domésticas
         </header>
         <main className={'main'}>
-          <Tarefas concluida />
-          <Tarefas concluida={false} />
+          <Layout />
+          
         </main>
       </div>
     );

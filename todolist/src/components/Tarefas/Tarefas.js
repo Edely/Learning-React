@@ -1,25 +1,14 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 import Tarefa from './Tarefa/Tarefa';
-import * as actions from '../../store/actions';
 
-class Tarefas extends Component{
-
-    render(){
-
+const tarefas = (props) =>{
         let tarefas = null;
-        if(this.props.tarefas){
-            //console.log(new Date().getTime())           
-            const tarefasConcluidas= this.props.tarefas.filter(tarefa => tarefa.prazo <= new Date().getTime() );
-            const tarefasAbertas = this.props.tarefas.filter(tarefa => tarefa.prazo > new Date().getTime() );
-            console.log(tarefasConcluidas);
-            console.log(tarefasAbertas)
+        if(props.tarefas){                 
 
-            tarefas = this.props.tarefas.map(tarefa =>{
+            tarefas = props.tarefas.map(tarefa =>{
                 
                 return (
-                    tarefas = <Tarefa 
-                                
+                    tarefas = <Tarefa
                                 nome={tarefa.nome}
                                 descricao={tarefa.descricao}
                                 prazo={tarefa.prazo}
@@ -30,25 +19,11 @@ class Tarefas extends Component{
        
         return (
                 <div className={'lista-tarefas'}>
-                    <div className={'lista-tarefas__header'}> {this.props.concluida ? 'Tarefas Concluídas': 'Tarefas Por Fazer'}</div>
+                    <div className={'lista-tarefas__header'}> {props.concluida ? 'Tarefas Concluídas': 'Tarefas Por Fazer'}</div>
                     {tarefas}
                 </div>
             );
     }
-    
-}
 
-const mapStateToProps = state =>{
-    
-    return{
-        tarefas : state.tarefas
-    }
-}
 
-const mapDispatchToProps = dispatch =>{
-    return {
-        onLoadTarefas : dispatch(actions.loadTarefas())
-    }
-} 
-
-export default connect(mapStateToProps, mapDispatchToProps)(Tarefas);
+export default tarefas;
