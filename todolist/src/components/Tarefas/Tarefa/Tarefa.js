@@ -8,11 +8,12 @@ const tarefa = (props) =>{
         date = new Date(parseInt(props.prazo));
         date = twoDigits(date.getDate()) + '/' + twoDigits(date.getMonth()) + '/' + date.getFullYear() + '  ' + date.getHours() + ':' + twoDigits(date.getMinutes()) ;
     }
-    
+
+    console.log(props)
     return(
         <div className={'lista-tarefa__itens'}>
             <div className={'lista-tarefa__itens__info'}>{ date }</div>
-            <div className={'lista-tarefa__itens__info'}>{props.tarefa} </div>
+            <div className={'lista-tarefa__itens__info'}>{props.nome} </div>
             <div className={'lista-tarefa__itens__info'}>{props.descricao}</div>            
             <div className={'lista-tarefa__itens__info'}>{props.responsavel}</div>
                       

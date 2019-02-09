@@ -6,13 +6,13 @@ const initialState = {
 
 const placeholderTarefas = [
     {
-      tarefa: 'Lavar os Pratos',
+      nome: 'Lavar os Pratos',
       descricao: 'A melhor das tarefas. Quem não gosta?!!!',
       responsavel: 'Edely',
       prazo: '657580199000'
     },
     {
-      tarefa: 'Alimentar os Gatos',
+      nome: 'Alimentar os Gatos',
       descricao: 'São uns monstros. Não demore!',
       responsavel: 'Selina',
       prazo: '1551301799000'
