@@ -13,8 +13,7 @@ class App extends Component {
           Tarefas Domésticas
         </header>
         <main className={'main'}>
-          <Layout />
-          
+          <Layout />         
         </main>
       </div>
     );
