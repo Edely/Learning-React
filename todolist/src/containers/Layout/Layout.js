@@ -15,8 +15,8 @@ class Layout extends Component{
             console.log(tarefasAbertas);
 
             tarefas = (<div>            
-                <Tarefas tarefas={tarefasConcluidas} />
-                <Tarefas tarefas={tarefasAbertas} />
+                <Tarefas tarefas={tarefasAbertas} concluida={false}/>
+                <Tarefas tarefas={tarefasConcluidas} concluida/>               
                 </div>
             )
         }
