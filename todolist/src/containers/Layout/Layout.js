@@ -17,8 +17,7 @@ class Layout extends Component{
                 <Aux>     
                     <Tarefas tarefas={tarefasAbertas} concluida={false}/>
                     <Tarefas tarefas={tarefasConcluidas} concluida/>   
-                </Aux>            
-               
+                </Aux>
             );
         };
 
@@ -28,7 +27,6 @@ class Layout extends Component{
 
 
 const mapStateToProps = state =>{
-    console.log(state)
     return{
         tarefas : state.tarefas
     }
