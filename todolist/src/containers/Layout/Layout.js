@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Tarefas from '../../components/Tarefas/Tarefas';
+import Aux from '../../hoc/Auxiliary/Auxiliary';
 import * as actions from '../../store/actions';
 import { connect } from 'react-redux';
 
@@ -9,19 +10,21 @@ class Layout extends Component{
         let tarefas =  null;
 
         if(this.props.tarefas){
-            const tarefasConcluidas= this.props.tarefas.filter(tarefa => tarefa.status === "fechada" ) ;
-            const tarefasAbertas = this.props.tarefas.filter(tarefa => tarefa.status  === "aberta" );
+            const tarefasConcluidas= this.props.tarefas.filter(tarefa => tarefa.feita);
+            const tarefasAbertas = this.props.tarefas.filter(tarefa => !tarefa.feita);
             console.log(tarefasConcluidas);
             console.log(tarefasAbertas);
 
-            tarefas = (<div>            
-                <Tarefas tarefas={tarefasAbertas} concluida={false}/>
-                <Tarefas tarefas={tarefasConcluidas} concluida/>               
-                </div>
-            )
-        }
+            tarefas = (
+                <Aux>     
+                    <Tarefas tarefas={tarefasAbertas} concluida={false}/>
+                    <Tarefas tarefas={tarefasConcluidas} concluida/>   
+                </Aux>            
+               
+            );
+        };
 
-        return <div>{tarefas}</div>
+        return tarefas;
     };
 };
 

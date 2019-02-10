@@ -1,10 +1,10 @@
 .main{
   width: 100%;
-  padding: 0 15px;
+  display: block;
   margin: 0 auto;
 }
 
-@media(min-width:1280px){
+@media(min-width: 1280px){
   .main{
     width: 1024px;
   }
@@ -14,11 +14,6 @@
     text-align: center;
     padding: 20px;
     font-size: 36px;
-}
-
-.main{
-  width: 100%;
-  display: block;
 }
 
 .lista-tarefas{

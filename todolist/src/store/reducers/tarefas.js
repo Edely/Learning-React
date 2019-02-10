@@ -10,58 +10,60 @@ const placeholderTarefas = [
       descricao: 'A melhor das tarefas. Quem não gosta?!!!',
       responsavel: 'Edely',
       prazo: '657580199000',
-      status: 'aberta'
+      feita: false
     },
     {
       nome: 'Alimentar os Gatos',
       descricao: 'São uns monstros. Não demore!',
       responsavel: 'Selina',
       prazo: '1551301799000',
-      status: 'fechada'
+      feita: true
     },
     {
       nome: 'Cortar a grama',
       descricao: 'Embora não tenhamos!',
       responsavel: 'Edely',
       prazo: '657580179080',
-      status: 'aberta'
+      feita: false
     },
     {
       nome: 'Dar banho nos jacarés',
       descricao: 'Extremamente dóceis',
       responsavel: 'Camila',
       prazo: '1555361489333',
-      status: 'aberta'
+      feita: false
     },
     {
       nome: 'Cortar a grama',
       descricao: 'Embora não tenhamos!',
       responsavel: 'Edely',
       prazo: '657580179080',
-      status: 'aberta'
+      feita: false
     },
     {
       nome: 'Dar banho nos jacarés',
       descricao: 'Extremamente dóceis',
       responsavel: 'Camila',
       prazo: '1555361489333',
-      status: 'fechada'
+      feita: true
     },
     {
       nome: 'Cortar a grama',
       descricao: 'Embora não tenhamos!',
       responsavel: 'Edely',
       prazo: '657580179080',
-      status: 'aberta'
+      feita: false
     },
     {
       nome: 'Dar banho nos jacarés',
       descricao: 'Extremamente dóceis',
       responsavel: 'Camila',
       prazo: '1555361489333',
-      status: 'aberta'
+      feita: false
     }
   ];
+
+
 
 const reducer = (state = initialState, action) =>{
     switch (action.type) {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Aux from './hoc/Auxiliary/Auxiliary';
 import Layout from './containers/Layout/Layout';
 
 class App extends Component {
@@ -8,14 +9,14 @@ class App extends Component {
   render() {
 
     return (
-      <div className={'main'}>
+      <Aux>
         <header className={'header'}>
           Tarefas Domésticas
         </header>
         <main className={'main'}>
           <Layout />         
         </main>
-      </div>
+        </Aux>
     );
   }
 }
