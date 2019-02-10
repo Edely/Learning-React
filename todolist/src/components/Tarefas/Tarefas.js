@@ -3,6 +3,10 @@ import Tarefa from './Tarefa/Tarefa';
 
 const tarefas = (props) =>{
         let tarefas = null;
+        const classesTarefas = ['lista-tarefas'];
+
+        props.concluida ? classesTarefas.push('tarefas-concluidas') : classesTarefas.push('tarefas-abertas');
+
         if(props.tarefas){                 
 
             tarefas = props.tarefas.map(tarefa =>{
@@ -20,7 +24,7 @@ const tarefas = (props) =>{
         }
        
         return (
-                <div className={'lista-tarefas'}>
+                <div className={classesTarefas.join(' ')}>
                     <div className={'lista-tarefas__header'}> {props.concluida ? 'Tarefas Concluídas': 'Tarefas Por Fazer'}</div>
                     {tarefas}
                 </div>

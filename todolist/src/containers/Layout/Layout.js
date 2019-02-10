@@ -12,8 +12,6 @@ class Layout extends Component{
         if(this.props.tarefas){
             const tarefasConcluidas= this.props.tarefas.filter(tarefa => tarefa.feita);
             const tarefasAbertas = this.props.tarefas.filter(tarefa => !tarefa.feita);
-            console.log(tarefasConcluidas);
-            console.log(tarefasAbertas);
 
             tarefas = (
                 <Aux>     

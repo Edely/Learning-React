@@ -63,6 +63,10 @@
   width: 25%;
 }
 
-.tarefa-fechada{
+.tarefas-abertas .tarefa-fechada{
   color: #f34;
+}
+
+.tarefas-concluidas .lista-tarefa__itens__info{
+  color: #777;
 }
