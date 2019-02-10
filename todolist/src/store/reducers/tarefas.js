@@ -68,11 +68,14 @@ const placeholderTarefas = [
 const reducer = (state = initialState, action) =>{
     switch (action.type) {
         case actionTypes.LOAD_TAREFAS:
-        
-            return {
-                ...state,
-                tarefas: placeholderTarefas
-            }
+          placeholderTarefas.map(tarefa => {
+            tarefa.atrasada = tarefa.prazo <= new Date().getTime();
+            return null;
+          })
+					return {
+							...state,
+							tarefas: placeholderTarefas
+					}
             
         default:
             return state;

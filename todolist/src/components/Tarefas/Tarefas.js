@@ -13,7 +13,8 @@ const tarefas = (props) =>{
                                 descricao={tarefa.descricao}
                                 prazo={tarefa.prazo}
                                 responsavel={tarefa.responsavel}
-                                feita={tarefa.feita}/>
+                                feita={tarefa.feita}
+                                atrasada={tarefa.atrasada}/>
                     )
                 });
         }

@@ -62,3 +62,7 @@
 .lista-tarefa__itens__info--date{
   width: 25%;
 }
+
+.tarefa-fechada{
+  color: #f34;
+}
