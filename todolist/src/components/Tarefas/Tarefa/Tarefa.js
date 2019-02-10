@@ -12,11 +12,10 @@ const tarefa = (props) =>{
     console.log(props)
     return(
         <div className={'lista-tarefa__itens'}>
-            <div className={'lista-tarefa__itens__info'}>{ date }</div>
-            <div className={'lista-tarefa__itens__info'}>{props.nome} </div>
-            <div className={'lista-tarefa__itens__info'}>{props.descricao}</div>            
-            <div className={'lista-tarefa__itens__info'}>{props.responsavel}</div>
-                      
+            <div className={'lista-tarefa__itens__info lista-tarefa__itens__info--name'}>{props.nome} </div>
+            <div className={'lista-tarefa__itens__info lista-tarefa__itens__info--date'}>{ date }</div>
+            <div className={'lista-tarefa__itens__info lista-tarefa__itens__info--desc'}>{props.descricao}</div>            
+            <div className={'lista-tarefa__itens__info lista-tarefa__itens__info--resp'}>{props.responsavel}</div>
             <div className={'lista-tarefa__itens__info'}><Button>Eas</Button></div>
         </div>
     );
