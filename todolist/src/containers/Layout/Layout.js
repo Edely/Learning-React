@@ -9,8 +9,8 @@ class Layout extends Component{
         let tarefas =  null;
 
         if(this.props.tarefas){
-            const tarefasConcluidas= this.props.tarefas.filter(tarefa => tarefa.prazo <= new Date().getTime() ) ;
-            const tarefasAbertas = this.props.tarefas.filter(tarefa => tarefa.prazo > new Date().getTime() );
+            const tarefasConcluidas= this.props.tarefas.filter(tarefa => tarefa.status === "fechada" ) ;
+            const tarefasAbertas = this.props.tarefas.filter(tarefa => tarefa.status  === "aberta" );
             console.log(tarefasConcluidas);
             console.log(tarefasAbertas);
 

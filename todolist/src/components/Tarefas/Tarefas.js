@@ -12,7 +12,7 @@ const tarefas = (props) =>{
                                 nome={tarefa.nome}
                                 descricao={tarefa.descricao}
                                 prazo={tarefa.prazo}
-                                props={tarefa.responsavel}/>
+                                responsavel={tarefa.responsavel}/>
                     )
                 });
         }
