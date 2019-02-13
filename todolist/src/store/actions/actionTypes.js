@@ -1,1 +1,0 @@
-export const LOAD_TAREFAS = "LOAD_TAREFAS";
