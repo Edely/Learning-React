@@ -1,0 +1,4 @@
+- Pq o componente Route é self closed?
+- Relembrar lazy loading
+- O que é source map?
+- Configurações do babel
